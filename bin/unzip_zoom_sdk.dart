@@ -68,38 +68,44 @@ void main(List<String> args) async {
 Future<void> checkAndDownloadSDK(String location) async {
   var iosSDKFile = location +
       '/ios/MobileRTC.xcframework/ios-arm64_armv7/MobileRTC.framework/MobileRTC';
-  bool exists = await File(iosSDKFile).exists();
+  // bool exists = await File(iosSDKFile).exists();
+  bool exists = false;
 
   if (!exists) {
     await downloadFile(
-        Uri.parse('https://com21-static.s3.sa-east-1.amazonaws.com/zoom/ios/ios-arm64_armv7/MobileRTC?dl=1'),
+        Uri.parse(
+            'https://drive.google.com/uc?export=download&id=1s0vQvdLqoxVd85pONoyJQ_V3tQmlF2O6'),
         iosSDKFile);
   }
 
   var iosSimulateSDKFile = location +
       '/ios/MobileRTC.xcframework/ios-i386_x86_64-simulator/MobileRTC.framework/MobileRTC';
-  exists = await File(iosSimulateSDKFile).exists();
+  // exists = await File(iosSimulateSDKFile).exists();
+   exists = false;
 
   if (!exists) {
     await downloadFile(
-        Uri.parse('https://com21-static.s3.sa-east-1.amazonaws.com/zoom/ios/ios-x86_64-simulator/MobileRTC'),
+        Uri.parse(
+            'https://drive.google.com/uc?export=download&id=1JI4oZy0SuExaunw1YuPXifj7bD-eSBKN'),
         iosSimulateSDKFile);
   }
 
   var androidCommonLibFile = location + '/android/libs/commonlib.aar';
-  exists = await File(androidCommonLibFile).exists();
+  // exists = await File(androidCommonLibFile).exists();
+  exists = false;
   if (!exists) {
     await downloadFile(
         Uri.parse(
-            'https://com21-static.s3.sa-east-1.amazonaws.com/zoom/android/commonlib.aar?dl=1'),
+            'https://drive.google.com/uc?export=download&id=1jmYxOEB1Z23S_tPgyVQhzM-ssfF-i4At'),
         androidCommonLibFile);
   }
   var androidRTCLibFile = location + '/android/libs/mobilertc.aar';
-  exists = await File(androidRTCLibFile).exists();
+  // exists = await File(androidRTCLibFile).exists();
+  exists = false;
   if (!exists) {
     await downloadFile(
         Uri.parse(
-            'https://com21-static.s3.sa-east-1.amazonaws.com/zoom/android/mobilertc.aar?dl=1'),
+            'https://drive.google.com/uc?export=download&id=1hRu5z3YxdGIM89RSL9gtE8U4wEAAnPYG'),
         androidRTCLibFile);
   }
 }
